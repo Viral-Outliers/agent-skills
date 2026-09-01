@@ -21,6 +21,12 @@ OpenClaw (published on ClawHub):
 openclaw skills install @MatsClaes2/viral-outliers
 ```
 
+Claude Code, Cursor, Codex and other agents that support the open Agent Skills standard (via Vercel's skills CLI):
+
+```
+npx skills add Viral-Outliers/agent-skills
+```
+
 Also discoverable via https://viraloutliers.com/.well-known/skills/index.json (agent-skills discovery).
 
 You need a Viral Outliers API key in `VIRAL_OUTLIERS_API_KEY` (create one at https://viraloutliers.com/settings?tab=api-keys). The free trending and pricing endpoints work without one.
