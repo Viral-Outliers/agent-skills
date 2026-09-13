@@ -9,8 +9,9 @@ curl https://viraloutliers.com/api/v1/pricing
 ```
 Both are free and unauthenticated: a live sample of the outlier feed, and the machine-readable price list.
 
-## Step 1: create a free account
+## Step 1: create a free account (or skip it)
 Sign up at https://viraloutliers.com/sign-up. A free account is enough to buy credits and use the API; a subscription additionally includes monthly credits (Basic Plan 250, Pro Plan 750, Agency Plan 3.000).
+Shortcut for agents and one-off users: pay $15 for 1,500 credits at https://viraloutliers.com/api-access and an API key is shown right after checkout (an account is created for the email you pay with), which covers Steps 1 to 3 in one click. Any billable call made without a key returns HTTP 402 payment_required carrying that same link in error.payment.checkoutUrl.
 
 ## Step 2: create an API key
 Go to https://viraloutliers.com/settings?tab=api-keys and create a key. It starts with so_live_ and is shown ONCE, so store it immediately. You can revoke and rotate keys on the same page.
@@ -26,6 +27,13 @@ curl -X POST https://viraloutliers.com/api/v1/search/content \
   -d '{"query": "home workout", "platforms": ["tiktok"], "minOutlierScore": 5}'
 ```
 Every billable response includes X-Credits-Charged and X-Credits-Balance headers, so you can track spend per call.
+
+Or use the official CLI (npm package viral-outliers, Node 20+; one command per skill, JSON output, --wait for async jobs):
+```
+npx viral-outliers login --key so_live_YOUR_KEY
+npx viral-outliers search-outliers --query "home workout" --platforms tiktok --min-outlier-score 5
+```
+CLI docs: https://viraloutliers.com/docs/cli
 
 ## Step 5: connect an AI agent via MCP
 ```
@@ -46,7 +54,7 @@ mcp_servers:
     headers:
       Authorization: "Bearer ${VIRAL_OUTLIERS_API_KEY}"
 ```
-A ready-made agent skill for this workflow: OpenClaw users run `openclaw skills install @MatsClaes2/viral-outliers`; Hermes users run `hermes skills search viral outliers`; it is also discoverable at https://viraloutliers.com/.well-known/skills/index.json.
+A ready-made agent skill for this workflow: OpenClaw users run `openclaw skills install @MatsClaes2/viral-outliers`; Hermes users run `hermes skills search viral outliers`; it is also discoverable at https://viraloutliers.com/.well-known/skills/index.json. Shell-native agents (Claude Code, CI) can use the CLI instead: `npm i -g viral-outliers` (docs at https://viraloutliers.com/docs/cli).
 
 ## Step 6: run async work (crawls, transcripts, remixes)
 Async skills charge on queueing and return a jobRef. Poll GET /api/v1/jobs/{jobRef} (free) every 10-30 seconds; when completed, fetch the result (transcripts and visual analyses land on GET /api/v1/posts/{postId}). Failed jobs refund automatically.
@@ -55,5 +63,5 @@ Async skills charge on queueing and return a jobRef. Poll GET /api/v1/jobs/{jobR
 - Full skill table and per-skill docs: https://viraloutliers.com/docs
 - OpenAPI spec: https://viraloutliers.com/openapi.json
 - Machine-readable site summary: https://viraloutliers.com/llms.txt
-- On insufficient_credits (HTTP 402): call create_topup_link (POST /api/v1/credits/topup, free) for a payment link to hand the account owner.
+- On insufficient_credits (HTTP 402): call create_topup_link (POST /api/v1/credits/topup, free) for a payment link to hand the account owner. On payment_required (HTTP 402, no key sent): hand the user error.payment.checkoutUrl; paying it yields a key without an account.
 - Found a bug? report_issue (POST /api/v1/feedback) is free.

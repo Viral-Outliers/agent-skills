@@ -4,7 +4,7 @@ Search statistically overperforming ("outlier") social media posts across TikTok
 - REST: base https://viraloutliers.com, spec at https://viraloutliers.com/openapi.json
 - MCP (streamable HTTP): https://viraloutliers.com/api/mcp
 
-Authentication: create an API key at https://viraloutliers.com/settings (API Keys tab), then send it as `Authorization: Bearer so_live_...` (or the `x-api-key` header). Billing is prepaid credits with a hard stop at zero; on `insufficient_credits`, call create_topup_link for a payment link to give the account owner.
+Authentication: send an API key as `Authorization: Bearer so_live_...` (or the `x-api-key` header). No key yet? Pay $15 for 1,500 credits at https://viraloutliers.com/api-access and get a key instantly, no account needed; or create a free account and key at https://viraloutliers.com/settings (API Keys tab). Without a key, billable calls return HTTP 402 payment_required with that payment link in `error.payment.checkoutUrl` (or `error.payment.pageUrl` when no direct link is configured). Billing is prepaid credits with a hard stop at zero; on `insufficient_credits`, call create_topup_link for a payment link to give the account owner.
 
 Included monthly credits: Basic Plan 250, Pro Plan 750, Agency Plan 3.000. Top-up packs: pack_s = 1.500 credits for $15; pack_m = 4.200 credits for $39; pack_l = 12.000 credits for $99.
 

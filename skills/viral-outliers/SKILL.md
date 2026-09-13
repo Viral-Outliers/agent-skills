@@ -1,7 +1,7 @@
 ---
 name: viral-outliers
 description: "Find viral outlier posts on TikTok, Instagram and YouTube, pull creator stats, transcribe and analyse videos, build competitor watchlists, and crawl profiles on demand. Prepaid credits, MCP or REST."
-version: 1.0.0
+version: 1.1.0
 author: Viral Outliers
 required_environment_variables:
   - name: VIRAL_OUTLIERS_API_KEY
@@ -52,7 +52,7 @@ curl https://viraloutliers.com/api/v1/pricing
 
 ## Setup (preferred): connect the MCP server
 
-The user needs an API key from https://viraloutliers.com/settings?tab=api-keys (a free account is enough; credits are bought there or included with a subscription). With the key in the `VIRAL_OUTLIERS_API_KEY` environment variable, register the server once:
+The user needs an API key: either instantly at https://viraloutliers.com/api-access (pay $15 for 1,500 credits, no account needed, the key is shown right after checkout) or from https://viraloutliers.com/settings?tab=api-keys with a free account. With the key in the `VIRAL_OUTLIERS_API_KEY` environment variable, register the server once:
 
 ```
 openclaw mcp add viral-outliers --url https://viraloutliers.com/api/mcp --transport streamable-http --header "Authorization=Bearer ${VIRAL_OUTLIERS_API_KEY}"
@@ -79,7 +79,11 @@ curl -X POST https://viraloutliers.com/api/v1/search/content \
   -d '{"query": "home workout", "platforms": ["tiktok"], "minOutlierScore": 5, "pageSize": 20}'
 ```
 
-The full REST contract is at https://viraloutliers.com/openapi.json.
+The full REST contract is at https://viraloutliers.com/openapi.json. If Node 20+ is available, the official CLI wraps every skill with the same key (JSON output, `--wait` polls async jobs):
+
+```
+npx viral-outliers search-outliers --query "home workout" --platforms tiktok --min-outlier-score 5
+```
 
 ## What you can do (skill, cost, endpoint)
 
@@ -118,6 +122,7 @@ Details for every skill, including parameters and example workflows, are in refe
 ## Rules to follow
 
 - Credits are charged when a call is accepted. Every billable response carries `X-Credits-Charged` and `X-Credits-Balance` headers; `get_credit_balance` is free. On an `insufficient_credits` error (HTTP 402), call `create_topup_link` (free) and give the user the payment link instead of retrying.
+- If no key is configured, a billable call returns 402 `payment_required` with a payment link in `error.payment.checkoutUrl`: show it to the user, then set `VIRAL_OUTLIERS_API_KEY` to the key they receive after paying.
 - Async skills (`crawl_profile`, `request_transcript`, `request_visual_analysis`, `download_post_media`, `remix_post`) return a `jobRef`. Poll `get_job_status` (free) every 10 to 30 seconds; never resubmit a slow job. Transcripts and visual analyses appear on `get_post`; remixes on `get_remix_result`. Failed jobs refund automatically.
 - `request_transcript` is for videos. Image slideshows have no audio and are rejected without charge; use `request_visual_analysis` for their on-screen text.
 - To search only a specific set of creators, build a watchlist (`create_watchlist`, `add_watchlist_profiles`) and pass its id as `watchlistId` to `search_outliers`. Watchlists count against a workspace allowance that comes from a subscription or is earned from API spend; every API key starts with 1 watchlist and 10 followed profiles.
