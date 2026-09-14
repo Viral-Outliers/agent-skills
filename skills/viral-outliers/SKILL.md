@@ -1,7 +1,7 @@
 ---
 name: viral-outliers
 description: "Find viral outlier posts on TikTok, Instagram and YouTube, pull creator stats, transcribe and analyse videos, build competitor watchlists, and crawl profiles on demand. Prepaid credits, MCP or REST."
-version: 1.1.0
+version: 1.1.1
 author: Viral Outliers
 required_environment_variables:
   - name: VIRAL_OUTLIERS_API_KEY
@@ -96,7 +96,7 @@ npx viral-outliers search-outliers --query "home workout" --platforms tiktok --m
 - `crawl_profile` (40 credits; POST /api/v1/crawls): Add any public TikTok, Instagram or YouTube profile to the tracked database on demand.
 - `get_job_status` (free; GET /api/v1/jobs/{jobRef}): Free polling endpoint for asynchronous jobs (crawls, transcriptions).
 - `get_credit_balance` (free; GET /api/v1/credits): Free endpoint returning your current credit balance.
-- `get_pricing` (free; GET /api/v1/pricing): Free, unauthenticated, machine-readable price list: per-skill credit costs, credit packs and the USD-per-credit rate.
+- `get_pricing` (free; GET /api/v1/pricing): Free, unauthenticated, machine-readable price list: per-skill credit costs, credit packs, subscription plans with their included API credits, and the USD-per-credit rate.
 - `compare_profiles` (2 credits; POST /api/v1/profiles/compare): Benchmark 2–5 tracked creators side by side: followers, average views/likes/engagement, and who wins each metric.
 - `niche_trends` (2 credits; POST /api/v1/trends): The posts spiking in a niche right now, plus which formats and creators are driving it.
 - `resolve_post_url` (1 credit; POST /api/v1/posts/resolve): Turn a public TikTok/Instagram/YouTube post URL into the internal post id every other skill uses.

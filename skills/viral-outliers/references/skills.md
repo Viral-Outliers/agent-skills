@@ -18,7 +18,7 @@ Included monthly credits: Basic Plan 250, Pro Plan 750, Agency Plan 3.000. Top-u
 - crawl_profile (POST /api/v1/crawls, 40cr): Add any public TikTok, Instagram or YouTube profile to the tracked database on demand.
 - get_job_status (GET /api/v1/jobs/{jobRef}, free): Free polling endpoint for asynchronous jobs (crawls, transcriptions).
 - get_credit_balance (GET /api/v1/credits, free): Free endpoint returning your current credit balance.
-- get_pricing (GET /api/v1/pricing, free): Free, unauthenticated, machine-readable price list: per-skill credit costs, credit packs and the USD-per-credit rate.
+- get_pricing (GET /api/v1/pricing, free): Free, unauthenticated, machine-readable price list: per-skill credit costs, credit packs, subscription plans with their included API credits, and the USD-per-credit rate.
 - compare_profiles (POST /api/v1/profiles/compare, 2cr): Benchmark 2–5 tracked creators side by side: followers, average views/likes/engagement, and who wins each metric.
 - niche_trends (POST /api/v1/trends, 2cr): The posts spiking in a niche right now, plus which formats and creators are driving it.
 - resolve_post_url (POST /api/v1/posts/resolve, 1cr): Turn a public TikTok/Instagram/YouTube post URL into the internal post id every other skill uses.
