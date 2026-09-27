@@ -1,7 +1,7 @@
 ---
 name: viral-outliers
 description: "Find viral outlier posts on TikTok, Instagram and YouTube, pull creator stats, transcribe and analyse videos, build competitor watchlists, and crawl profiles on demand. Prepaid credits, MCP or REST."
-version: 1.1.1
+version: 1.2.0
 author: Viral Outliers
 required_environment_variables:
   - name: VIRAL_OUTLIERS_API_KEY
@@ -116,6 +116,7 @@ npx viral-outliers search-outliers --query "home workout" --platforms tiktok --m
 - `remove_watchlist_profiles` (free; DELETE /api/v1/watchlists/profiles): Remove creators from a watchlist by profile id. Free.
 - `delete_watchlist` (free; DELETE /api/v1/watchlists): Delete one of your watchlists and its memberships, freeing the allowance it used. Free.
 - `get_tracked_updates` (free; GET /api/v1/tracking/updates): Pull the posts first seen since your last check across all monitored profiles, then advance the cursor. Free.
+- `find_related_social_media_profiles` (25 credits; POST /api/v1/profiles/related): Discover creators nobody has indexed yet: seed with a handle, hashtag or search phrase, get back screened, relevance-ranked accounts with reach stats.
 
 Details for every skill, including parameters and example workflows, are in references/skills.md; the step-by-step onboarding guide is in references/getting-started.md.
 
