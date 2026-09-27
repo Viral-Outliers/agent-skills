@@ -38,6 +38,7 @@ Included monthly credits: Basic Plan 250, Pro Plan 750, Agency Plan 3.000. Top-u
 - remove_watchlist_profiles (DELETE /api/v1/watchlists/profiles, free): Remove creators from a watchlist by profile id. Free.
 - delete_watchlist (DELETE /api/v1/watchlists, free): Delete one of your watchlists and its memberships, freeing the allowance it used. Free.
 - get_tracked_updates (GET /api/v1/tracking/updates, free): Pull the posts first seen since your last check across all monitored profiles, then advance the cursor. Free.
+- list_categories (GET /api/v1/categories, free): The niche taxonomy with profile counts: the ids to pass as categoryId to search_outliers, search_profiles and niche_trends. Free.
 - create_viral_alert (POST /api/v1/alerts, free): Watch a competitor or creator and get an email when one of their posts scores above an outlier threshold you set. Free to set up; 5 credits per email sent.
 - list_viral_alerts (GET /api/v1/alerts, free): See every viral alert on your account: profile, threshold, emails sent, whether the address is confirmed and when it ends. Free.
 - delete_viral_alert (DELETE /api/v1/alerts, free): End a viral alert. If the alert started the profile's tracking, the refresh crawls stop too. Free.

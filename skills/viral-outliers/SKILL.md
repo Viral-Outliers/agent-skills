@@ -1,7 +1,7 @@
 ---
 name: viral-outliers
 description: "Find viral outlier posts on TikTok, Instagram and YouTube, pull creator stats, transcribe and analyse videos, build competitor watchlists, and crawl profiles on demand. Prepaid credits, MCP or REST."
-version: 1.3.0
+version: 1.4.0
 author: Viral Outliers
 required_environment_variables:
   - name: VIRAL_OUTLIERS_API_KEY
@@ -116,6 +116,7 @@ npx viral-outliers search-outliers --query "home workout" --platforms tiktok --m
 - `remove_watchlist_profiles` (free; DELETE /api/v1/watchlists/profiles): Remove creators from a watchlist by profile id. Free.
 - `delete_watchlist` (free; DELETE /api/v1/watchlists): Delete one of your watchlists and its memberships, freeing the allowance it used. Free.
 - `get_tracked_updates` (free; GET /api/v1/tracking/updates): Pull the posts first seen since your last check across all monitored profiles, then advance the cursor. Free.
+- `list_categories` (free; GET /api/v1/categories): The niche taxonomy with profile counts: the ids to pass as categoryId to search_outliers, search_profiles and niche_trends. Free.
 - `create_viral_alert` (free; POST /api/v1/alerts): Watch a competitor or creator and get an email when one of their posts scores above an outlier threshold you set. Free to set up; 5 credits per email sent.
 - `list_viral_alerts` (free; GET /api/v1/alerts): See every viral alert on your account: profile, threshold, emails sent, whether the address is confirmed and when it ends. Free.
 - `delete_viral_alert` (free; DELETE /api/v1/alerts): End a viral alert. If the alert started the profile's tracking, the refresh crawls stop too. Free.
