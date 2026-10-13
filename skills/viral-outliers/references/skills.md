@@ -9,8 +9,8 @@ Authentication: send an API key as `Authorization: Bearer so_live_...` (or the `
 Included monthly credits: Basic Plan 250, Pro Plan 750, Agency Plan 3.000. Top-up packs: pack_s = 1.500 credits for $15; pack_m = 4.200 credits for $39; pack_l = 12.000 credits for $99.
 
 ## Skills (MCP tool name, REST endpoint, cost)
-- search_outliers (POST /api/v1/search/content, 1cr): Find statistically overperforming ("outlier") social media posts across TikTok, Instagram and YouTube with rich filters.
-- search_profiles (POST /api/v1/search/profiles, 1cr): Find tracked creator profiles by name/handle across platforms, with follower and performance stats.
+- search_outliers (POST /api/v1/search/content, 1cr per 25 posts): Find statistically overperforming ("outlier") social media posts across TikTok, Instagram and YouTube with rich filters.
+- search_profiles (POST /api/v1/search/profiles, 1cr per 25 profiles): Find tracked creator profiles by name/handle across platforms, with follower and performance stats.
 - get_post (GET /api/v1/posts/{postId}, 1cr): Full data for one post: stats, outlier scores across seven time windows, plus cached transcript and visual analysis when available.
 - get_profile (GET /api/v1/profiles/{profileId}, 1cr): Follower counts, average performance baselines and recent posts for one tracked profile.
 - request_transcript (POST /api/v1/transcriptions, 10cr): Queue AI speech transcription for any tracked video post; poll the job, then fetch via get_post.

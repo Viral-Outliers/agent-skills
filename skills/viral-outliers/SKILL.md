@@ -1,7 +1,7 @@
 ---
 name: viral-outliers
 description: "Find viral outlier posts on TikTok, Instagram and YouTube, pull creator stats, transcribe and analyse videos, build competitor watchlists, and crawl profiles on demand. Prepaid credits, MCP or REST."
-version: 1.5.0
+version: 1.6.0
 author: Viral Outliers
 required_environment_variables:
   - name: VIRAL_OUTLIERS_API_KEY
@@ -87,8 +87,8 @@ npx viral-outliers search-outliers --query "home workout" --platforms tiktok --m
 
 ## What you can do (skill, cost, endpoint)
 
-- `search_outliers` (1 credit; POST /api/v1/search/content): Find statistically overperforming ("outlier") social media posts across TikTok, Instagram and YouTube with rich filters.
-- `search_profiles` (1 credit; POST /api/v1/search/profiles): Find tracked creator profiles by name/handle across platforms, with follower and performance stats.
+- `search_outliers` (1 credit per 25 posts; POST /api/v1/search/content): Find statistically overperforming ("outlier") social media posts across TikTok, Instagram and YouTube with rich filters.
+- `search_profiles` (1 credit per 25 profiles; POST /api/v1/search/profiles): Find tracked creator profiles by name/handle across platforms, with follower and performance stats.
 - `get_post` (1 credit; GET /api/v1/posts/{postId}): Full data for one post: stats, outlier scores across seven time windows, plus cached transcript and visual analysis when available.
 - `get_profile` (1 credit; GET /api/v1/profiles/{profileId}): Follower counts, average performance baselines and recent posts for one tracked profile.
 - `request_transcript` (10 credits; POST /api/v1/transcriptions): Queue AI speech transcription for any tracked video post; poll the job, then fetch via get_post.
@@ -127,6 +127,7 @@ Details for every skill, including parameters and example workflows, are in refe
 ## Rules to follow
 
 - Credits are charged when a call is accepted. Every billable response carries `X-Credits-Charged` and `X-Credits-Balance` headers; `get_credit_balance` is free. On an `insufficient_credits` error (HTTP 402), call `create_topup_link` (free) and give the user the payment link instead of retrying.
+- `search_outliers` and `search_profiles` are billed by results, not by call: 1 credit per 25 results returned, so the default page of 25 costs 1 and a page of 100 costs 4. Ask for the page size you need. One search serves its first 1,000 results: to see more, narrow the filters instead of paging deeper.
 - If no key is configured, a billable call returns 402 `payment_required` with a payment link in `error.payment.checkoutUrl`: show it to the user, then set `VIRAL_OUTLIERS_API_KEY` to the key they receive after paying.
 - Async skills (`crawl_profile`, `request_transcript`, `request_visual_analysis`, `download_post_media`, `remix_post`) return a `jobRef`. Poll `get_job_status` (free) every 10 to 30 seconds; never resubmit a slow job. Transcripts and visual analyses appear on `get_post`; remixes on `get_remix_result`. Failed jobs refund automatically.
 - `request_transcript` is for videos. Image slideshows have no audio and are rejected without charge; use `request_visual_analysis` for their on-screen text.
