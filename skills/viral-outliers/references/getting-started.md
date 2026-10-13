@@ -42,6 +42,21 @@ claude mcp add --transport http viral-outliers https://viraloutliers.com/api/mcp
 ```
 In Claude.ai or ChatGPT, add a custom connector with the URL https://viraloutliers.com/api/mcp and the same key. The server is listed on the official MCP registry as com.viraloutliers/viral-outliers.
 
+In Cursor, add the server to ~/.cursor/mcp.json (globally) or .cursor/mcp.json (one project):
+```
+{
+  "mcpServers": {
+    "viral-outliers": {
+      "url": "https://viraloutliers.com/api/mcp",
+      "headers": {
+        "Authorization": "Bearer so_live_YOUR_KEY"
+      }
+    }
+  }
+}
+```
+Cursor can also install it in one click from the plugin listing, and without a key the free tools still work while a billable tool answers with a payment link.
+
 In OpenClaw (key in the VIRAL_OUTLIERS_API_KEY environment variable):
 ```
 openclaw mcp add viral-outliers --url https://viraloutliers.com/api/mcp --transport streamable-http --header "Authorization=Bearer ${VIRAL_OUTLIERS_API_KEY}"

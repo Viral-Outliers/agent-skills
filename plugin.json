@@ -1,0 +1,20 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "viral-outliers",
+  "version": "1.0.0",
+  "description": "Find viral outlier posts on TikTok, Instagram and YouTube, pull creator stats, transcribe and analyse videos, build competitor watchlists, and crawl profiles on demand. Prepaid credits, MCP or REST.",
+  "author": "Viral Outliers",
+  "homepage": "https://viraloutliers.com/docs",
+  "repository": "https://github.com/Viral-Outliers/agent-skills",
+  "license": "MIT",
+  "keywords": [
+    "tiktok",
+    "instagram",
+    "youtube",
+    "viral-content",
+    "content-research",
+    "social-media-analytics",
+    "competitor-monitoring",
+    "mcp"
+  ]
+}
