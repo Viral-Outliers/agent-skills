@@ -1,7 +1,7 @@
 ---
 name: viral-outliers
 description: "Find viral outlier posts on TikTok, Instagram and YouTube, pull creator stats, transcribe and analyse videos, build competitor watchlists, and crawl profiles on demand. Prepaid credits, MCP or REST."
-version: 1.6.0
+version: 1.6.1
 author: Viral Outliers
 required_environment_variables:
   - name: VIRAL_OUTLIERS_API_KEY
