@@ -1,7 +1,7 @@
 ---
 name: viral-outliers
 description: "Find viral outlier posts on TikTok, Instagram and YouTube, pull creator stats, transcribe and analyse videos, build competitor watchlists, and crawl profiles on demand. Prepaid credits, MCP or REST."
-version: 1.6.3
+version: 1.7.0
 author: Viral Outliers
 required_environment_variables:
   - name: VIRAL_OUTLIERS_API_KEY
@@ -59,6 +59,8 @@ openclaw mcp add viral-outliers --url https://viraloutliers.com/api/mcp --transp
 ```
 
 Then call the tools by name (`search_outliers`, `get_post`, `request_transcript`, ...). The server also accepts the key as an `x-api-key` header, and the free `get_trending_outliers` tool works before any key is configured. If your OpenClaw build fails to forward the header, use the REST fallback below.
+
+An MCP client that supports OAuth sign-in (Claude.ai, ChatGPT, Claude Code, Cursor) needs no key at all: connect it to https://viraloutliers.com/api/mcp/oauth and the user signs in to their Viral Outliers account and approves; calls then spend that account's credits.
 
 In Hermes Agent, add the server to `config.yaml` instead (the variable is read from your `.env`):
 

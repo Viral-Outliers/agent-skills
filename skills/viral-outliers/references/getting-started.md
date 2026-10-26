@@ -1,6 +1,6 @@
 # Getting started with the Viral Outliers API & MCP server
 
-Follow these steps in order. Steps 0 and the pricing lookup need no account at all.
+Follow these steps in order. Steps 0 and the pricing lookup need no account at all. Connecting Claude.ai or ChatGPT? You only need an account and credits (Steps 1 and 3), then Step 5: they sign in instead of using a key.
 
 ## Step 0: try it without an account
 ```
@@ -36,13 +36,22 @@ npx viral-outliers search-outliers --query "home workout" --platforms tiktok --m
 CLI docs: https://viraloutliers.com/docs/cli
 
 ## Step 5: connect an AI agent via MCP
+There are two ways in: sign in with your Viral Outliers account (OAuth, no key to copy) on the sign-in URL, or send an API key on the key URL. Both reach the same tools and spend the same credits.
+
+In Claude.ai or ChatGPT, add a custom connector with the URL https://viraloutliers.com/api/mcp/oauth, then sign in and approve. Claude.ai and ChatGPT cannot send an API key header, so this is the way in for them. You can disconnect the app at any time on https://viraloutliers.com/settings?tab=api-keys, under Connected apps.
+
+In Claude Code, add the sign-in URL, then run /mcp inside Claude Code and choose Authenticate:
+```
+claude mcp add --transport http viral-outliers https://viraloutliers.com/api/mcp/oauth
+```
+Or use an API key:
 ```
 claude mcp add --transport http viral-outliers https://viraloutliers.com/api/mcp \
   --header "Authorization: Bearer so_live_YOUR_KEY"
 ```
-In Claude.ai or ChatGPT, add a custom connector with the URL https://viraloutliers.com/api/mcp and the same key. The server is listed on the official MCP registry as com.viraloutliers/viral-outliers.
+The server is listed on the official MCP registry as com.viraloutliers/viral-outliers.
 
-In Cursor, add the server to ~/.cursor/mcp.json (globally) or .cursor/mcp.json (one project):
+In Cursor, add the server to ~/.cursor/mcp.json (globally) or .cursor/mcp.json (one project). With a key:
 ```
 {
   "mcpServers": {
@@ -55,6 +64,7 @@ In Cursor, add the server to ~/.cursor/mcp.json (globally) or .cursor/mcp.json (
   }
 }
 ```
+Or set the url to https://viraloutliers.com/api/mcp/oauth with no headers, and Cursor asks you to sign in.
 Cursor can also install it in one click from the plugin listing, and without a key the free tools still work while a billable tool answers with a payment link.
 
 In OpenClaw (key in the VIRAL_OUTLIERS_API_KEY environment variable):
