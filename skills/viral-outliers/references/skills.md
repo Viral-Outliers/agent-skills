@@ -23,6 +23,7 @@ Included monthly credits: Basic Plan 250, Pro Plan 750, Agency Plan 3.000. Top-u
 - niche_trends (POST /api/v1/trends, 2cr): The posts spiking in a niche right now, plus which formats and creators are driving it.
 - resolve_post_url (POST /api/v1/posts/resolve, 1cr): Turn a public TikTok/Instagram/YouTube post URL into the internal post id every other skill uses.
 - download_post_media (POST /api/v1/posts/media, 3cr): Get direct media URLs (video or slideshow images) for a tracked post; fetched on demand when not stored.
+- get_post_comments (POST /api/v1/posts/comments, 3cr): Read the comments of any public TikTok, Instagram or YouTube post: text, likes, author, date and reply count.
 - remix_post (POST /api/v1/remixes, 20cr): Turn any public viral post into a niche-adapted content idea: rewritten hook, script segments, a why-it-went-viral analysis and an execution checklist.
 - get_remix_result (GET /api/v1/remixes/{jobRef}, free): Free: fetch the finished output of a remix_post job.
 - create_topup_link (POST /api/v1/credits/topup, free): Out of credits? Get a ready-to-pay Stripe link for a credit pack to hand to the account owner. Free.

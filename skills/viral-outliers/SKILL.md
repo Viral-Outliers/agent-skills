@@ -1,7 +1,7 @@
 ---
 name: viral-outliers
 description: "Find viral outlier posts on TikTok, Instagram and YouTube, pull creator stats, transcribe and analyse videos, build competitor watchlists, and crawl profiles on demand. Prepaid credits, MCP or REST."
-version: 1.7.0
+version: 1.8.0
 author: Viral Outliers
 required_environment_variables:
   - name: VIRAL_OUTLIERS_API_KEY
@@ -37,7 +37,7 @@ metadata:
 
 # Viral Outliers: viral post research for TikTok, Instagram and YouTube
 
-Use this skill when the user wants to find viral or trending content in a niche, see which posts massively outperform a creator's usual numbers ("outliers"), pull creator stats, compare creators, transcribe a TikTok, Reel or Short, get a scene-by-scene breakdown of a video, remix a viral post into their own niche, build and search a competitor watchlist, or add a public profile to the database on demand.
+Use this skill when the user wants to find viral or trending content in a niche, see which posts massively outperform a creator's usual numbers ("outliers"), pull creator stats, compare creators, transcribe a TikTok, Reel or Short, read a post's comments, get a scene-by-scene breakdown of a video, remix a viral post into their own niche, build and search a competitor watchlist, or add a public profile to the database on demand.
 
 Viral Outliers continuously crawls creator profiles and ranks every post by outlier score: how far it overperforms that account's own baseline. That surfaces repeatable formats instead of posts that are big only because the account is big. Billing is prepaid credits (1 credit = $0.01) with a hard stop at zero: no surprise bills.
 
@@ -103,6 +103,7 @@ npx viral-outliers search-outliers --query "home workout" --platforms tiktok --m
 - `niche_trends` (2 credits; POST /api/v1/trends): The posts spiking in a niche right now, plus which formats and creators are driving it.
 - `resolve_post_url` (1 credit; POST /api/v1/posts/resolve): Turn a public TikTok/Instagram/YouTube post URL into the internal post id every other skill uses.
 - `download_post_media` (3 credits; POST /api/v1/posts/media): Get direct media URLs (video or slideshow images) for a tracked post; fetched on demand when not stored.
+- `get_post_comments` (3 credits; POST /api/v1/posts/comments): Read the comments of any public TikTok, Instagram or YouTube post: text, likes, author, date and reply count.
 - `remix_post` (20 credits; POST /api/v1/remixes): Turn any public viral post into a niche-adapted content idea: rewritten hook, script segments, a why-it-went-viral analysis and an execution checklist.
 - `get_remix_result` (free; GET /api/v1/remixes/{jobRef}): Free: fetch the finished output of a remix_post job.
 - `create_topup_link` (free; POST /api/v1/credits/topup): Out of credits? Get a ready-to-pay Stripe link for a credit pack to hand to the account owner. Free.
