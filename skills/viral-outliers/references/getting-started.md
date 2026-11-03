@@ -17,7 +17,7 @@ Shortcut for agents and one-off users: pay $15 for 1,500 credits at https://vira
 Go to https://viraloutliers.com/settings?tab=api-keys and create a key. It starts with so_live_ and is shown ONCE, so store it immediately. You can revoke and rotate keys on the same page.
 
 ## Step 3: add credits
-On the same API Keys tab, buy a one-time pack (1.500 credits for $15, 4.200 credits for $39, 12.000 credits for $99) or subscribe for a monthly allowance. 1 credit = $0.01. Billing is prepaid with a hard stop at zero: no surprise bills, ever.
+On the same API Keys tab, buy a one-time pack (1.500 credits for $15, 4.200 credits for $39, 12.000 credits for $99) or subscribe for a monthly allowance. 1 credit = $0.01. Billing is prepaid with a hard stop at zero: no surprise bills, ever. Credits included with a subscription are valid until the end of the billing period they come with and do not roll over (a yearly plan's credits last the year); purchased credits are valid for 24 months; the credits that expire soonest are spent first.
 
 ## Step 4: make your first REST call
 ```
