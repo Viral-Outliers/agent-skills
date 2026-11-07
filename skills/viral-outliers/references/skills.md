@@ -38,6 +38,8 @@ Included monthly credits: Basic Plan 250, Pro Plan 750, Agency Plan 3.000. Top-u
 - add_watchlist_profiles (POST /api/v1/watchlists/profiles, free): Add up to 25 tracked creators to a watchlist per call, by profile id or by platform+handle. Free; counts against your followed-profiles allowance.
 - remove_watchlist_profiles (DELETE /api/v1/watchlists/profiles, free): Remove creators from a watchlist by profile id. Free.
 - delete_watchlist (DELETE /api/v1/watchlists, free): Delete one of your watchlists and its memberships, freeing the allowance it used. Free.
+- list_projects (GET /api/v1/projects, free): All your projects (posts you saved in the web app) with their ids and post counts. Free.
+- get_project (GET /api/v1/projects/{projectId}, free): One project with the posts saved in it: post ids, links, stats, outlier scores and the user's notes. Free.
 - get_tracked_updates (GET /api/v1/tracking/updates, free): Pull the posts first seen since your last check across all monitored profiles, then advance the cursor. Free.
 - list_categories (GET /api/v1/categories, free): The niche taxonomy with profile counts: the ids to pass as categoryId to search_outliers, search_profiles and niche_trends. Free.
 - create_viral_alert (POST /api/v1/alerts, free): Watch a competitor or creator and get an email when one of their posts scores above an outlier threshold you set. Free to set up; 5 credits per email sent.
