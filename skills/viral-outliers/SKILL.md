@@ -1,7 +1,7 @@
 ---
 name: viral-outliers
 description: "Find viral outlier posts on TikTok, Instagram and YouTube, pull creator stats, transcribe and analyse videos, build competitor watchlists, and crawl profiles on demand. Prepaid credits, MCP or REST."
-version: 1.9.0
+version: 1.10.0
 author: Viral Outliers
 required_environment_variables:
   - name: VIRAL_OUTLIERS_API_KEY
@@ -120,6 +120,10 @@ npx viral-outliers search-outliers --query "home workout" --platforms tiktok --m
 - `delete_watchlist` (free; DELETE /api/v1/watchlists): Delete one of your watchlists and its memberships, freeing the allowance it used. Free.
 - `list_projects` (free; GET /api/v1/projects): All your projects (posts you saved in the web app) with their ids and post counts. Free.
 - `get_project` (free; GET /api/v1/projects/{projectId}): One project with the posts saved in it: post ids, links, stats, outlier scores and the user's notes. Free.
+- `create_project` (free; POST /api/v1/projects): Create a project to save posts into; it also shows up in the web app. Free, unlimited.
+- `add_project_posts` (free; POST /api/v1/projects/posts): Save up to 25 posts per call into a project, by post id or public link. Free.
+- `remove_project_posts` (free; DELETE /api/v1/projects/posts): Remove saved posts from a project by post id. Free.
+- `delete_project` (free; DELETE /api/v1/projects): Delete a project created through the API, with its saves. Free.
 - `get_tracked_updates` (free; GET /api/v1/tracking/updates): Pull the posts first seen since your last check across all monitored profiles, then advance the cursor. Free.
 - `list_categories` (free; GET /api/v1/categories): The niche taxonomy with profile counts: the ids to pass as categoryId to search_outliers, search_profiles and niche_trends. Free.
 - `create_viral_alert` (free; POST /api/v1/alerts): Watch a competitor or creator and get an email when one of their posts scores above an outlier threshold you set. Free to set up; 5 credits per email sent.
