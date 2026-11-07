@@ -43,7 +43,7 @@ Included monthly credits: Basic Plan 250, Pro Plan 750, Agency Plan 3.000. Top-u
 - create_project (POST /api/v1/projects, free): Create a project to save posts into; it also shows up in the web app. Free, unlimited.
 - add_project_posts (POST /api/v1/projects/posts, free): Save up to 25 posts per call into a project, by post id or public link. Free.
 - remove_project_posts (DELETE /api/v1/projects/posts, free): Remove saved posts from a project by post id. Free.
-- delete_project (DELETE /api/v1/projects, free): Delete a project created through the API, with its saves. Free.
+- delete_project (DELETE /api/v1/projects, free): Delete one of your projects and its saved posts. Free.
 - get_tracked_updates (GET /api/v1/tracking/updates, free): Pull the posts first seen since your last check across all monitored profiles, then advance the cursor. Free.
 - list_categories (GET /api/v1/categories, free): The niche taxonomy with profile counts: the ids to pass as categoryId to search_outliers, search_profiles and niche_trends. Free.
 - create_viral_alert (POST /api/v1/alerts, free): Watch a competitor or creator and get an email when one of their posts scores above an outlier threshold you set. Free to set up; 5 credits per email sent.
