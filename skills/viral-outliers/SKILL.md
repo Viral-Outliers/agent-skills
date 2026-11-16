@@ -102,7 +102,7 @@ npx viral-outliers search-outliers --query "home workout" --platforms tiktok --m
 - `compare_profiles` (2 credits; POST /api/v1/profiles/compare): Benchmark 2–5 tracked creators side by side: followers, average views/likes/engagement, and who wins each metric.
 - `niche_trends` (2 credits; POST /api/v1/trends): The posts spiking in a niche right now, plus which formats and creators are driving it.
 - `resolve_post_url` (1 credit; POST /api/v1/posts/resolve): Turn a public TikTok/Instagram/YouTube post URL into the internal post id every other skill uses.
-- `download_post_media` (3 credits; POST /api/v1/posts/media): Get direct media URLs (video or slideshow images) for a tracked post; fetched on demand when not stored.
+- `download_post_media` (3 credits; POST /api/v1/posts/media): Get direct media URLs (video or slideshow images) for any public post; fetched on demand when not stored.
 - `get_post_comments` (3 credits; POST /api/v1/posts/comments): Read the comments of any public TikTok, Instagram or YouTube post: text, likes, author, date and reply count.
 - `remix_post` (20 credits; POST /api/v1/remixes): Turn any public viral post into a niche-adapted content idea: rewritten hook, script segments, a why-it-went-viral analysis and an execution checklist.
 - `get_remix_result` (free; GET /api/v1/remixes/{jobRef}): Free: fetch the finished output of a remix_post job.
